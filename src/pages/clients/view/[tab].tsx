@@ -8,7 +8,7 @@ import axios from 'axios'
 import { InvoiceType } from 'src/types/apps/invoiceTypes'
 
 // ** Demo Components Imports
-import UserViewPage from 'src/views/apps/user/view/UserViewPage'
+import UserViewPage from 'src/views/apps/client/view/UserViewPage'
 
 const UserView = ({ tab, invoiceData }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return <UserViewPage tab={tab} invoiceData={invoiceData} />

@@ -159,7 +159,7 @@ const columns: GridColDef[] = [
             <Typography
               noWrap
               component={Link}
-              href='/apps/user/view/account'
+              href='/clients/view/account'
               sx={{
                 fontWeight: 500,
                 textDecoration: 'none',

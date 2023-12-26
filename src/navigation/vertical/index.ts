@@ -20,6 +20,11 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'tabler:mail'
     },
     {
+      title: 'Cover',
+      path: '/cover/list/',
+      icon: 'tabler:mail'
+    },
+    {
       title: 'Users App',
       path: '/apps/user/list/',
       icon: 'tabler:mail'

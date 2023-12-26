@@ -48,8 +48,8 @@ import { UsersType } from 'src/types/apps/userTypes'
 import { CardStatsHorizontalWithDetailsProps } from 'src/@core/components/card-statistics/types'
 
 // ** Custom Table Components Imports
-import TableHeader from 'src/views/apps/user/list/TableHeader'
-import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
+import TableHeader from 'src/views/clients/list/TableHeader'
+import AddUserDrawer from 'src/views/clients/list/AddClientDrawer'
 
 interface UserRoleType {
   [key: string]: { icon: string; color: string }

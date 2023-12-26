@@ -5,7 +5,7 @@ export type ClientsType = {
   id: number
   clientTitle: string
   clientOwner: string
-  clientIndustries: string
+  clientIndustries: string[]
   clientOverallSentiment: string
   role: string
   email: string

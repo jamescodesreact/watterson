@@ -158,8 +158,8 @@ const RowOptions = ({ id }: { id: number | string }) => {
 
 const columns: GridColDef[] = [
   {
-    flex: 0.25,
-    minWidth: 280,
+    flex: 0.2,
+    minWidth: 200,
     field: 'clientDetails',
     headerName: 'Client | Owner',
     renderCell: ({ row }: CellType) => {
@@ -191,19 +191,24 @@ const columns: GridColDef[] = [
     }
   },
   {
-    flex: 0.1,
-    minWidth: 110,
+    flex: 0.2,
+    minWidth: 200,
     field: 'clientIndustries',
-    headerName: 'Industry',
+    headerName: 'Industries',
     renderCell: ({ row }: CellType) => {
       return (
-        <CustomChip
-          rounded
-          skin='light'
-          size='small'
-          label={row.clientIndustries}
-          sx={{ textTransform: 'capitalize' }}
-        />
+        <Box>
+          {row.clientIndustries.map((industry, index) => (
+            <CustomChip
+              key={index}
+              rounded
+              skin='light'
+              size='small'
+              label={industry}
+              sx={{ textTransform: 'capitalize', mr: 1 }}
+            />
+          ))}
+        </Box>
       )
     }
   },

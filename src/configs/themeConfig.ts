@@ -78,10 +78,10 @@ const themeConfig: ThemeConfig = {
   appBarBlur: true /* true | false */,
 
   // ** Other Configs
-  responsiveFontSizes: false /* true | false */,
+  responsiveFontSizes: true /* true | false */,
   disableRipple: false /* true | false */,
-  disableCustomizer: true /* true | false */,
-  toastPosition: 'top-right' /* top-left | top-center | top-right | bottom-left | bottom-center | bottom-right */
+  disableCustomizer: false /* true | false */,
+  toastPosition: 'bottom-right' /* top-left | top-center | top-right | bottom-left | bottom-center | bottom-right */
 }
 
 export default themeConfig

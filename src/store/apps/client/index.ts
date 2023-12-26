@@ -10,6 +10,7 @@ interface DataParams {
   role: string
   status: string
   currentPlan: string
+  sentiment: string
 }
 
 interface Redux {

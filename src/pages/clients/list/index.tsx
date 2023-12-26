@@ -43,7 +43,7 @@ import axios from 'axios'
 import { RootState, AppDispatch } from 'src/store'
 import { CardStatsType } from 'src/@fake-db/types'
 import { ThemeColor } from 'src/@core/layouts/types'
-import { ClientsType } from 'src/types/apps/clientTypes'
+import { ClientsType, OverallSentiment } from 'src/types/apps/clientTypes'
 
 // ** Custom Table Components Imports
 import TableHeader from 'src/views/apps/client/list/TableHeader'
@@ -304,6 +304,7 @@ const UserList = () => {
   const [plan, setPlan] = useState<string>('')
   const [value, setValue] = useState<string>('')
   const [status, setStatus] = useState<string>('')
+  const [sentiment, setSentiment] = useState<string>('')
   const [addUserOpen, setAddUserOpen] = useState<boolean>(false)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
 
@@ -317,10 +318,11 @@ const UserList = () => {
         role,
         status,
         q: value,
-        currentPlan: plan
+        currentPlan: plan,
+        sentiment
       })
     )
-  }, [dispatch, plan, role, status, value])
+  }, [dispatch, plan, role, status, value, sentiment])
 
   const handleFilter = useCallback((val: string) => {
     setValue(val)
@@ -336,6 +338,10 @@ const UserList = () => {
 
   const handleStatusChange = useCallback((e: SelectChangeEvent<unknown>) => {
     setStatus(e.target.value as string)
+  }, [])
+
+  const handleSentimentChange = useCallback((e: SelectChangeEvent<unknown>) => {
+    setSentiment(e.target.value as OverallSentiment)
   }, [])
 
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
@@ -399,6 +405,22 @@ const UserList = () => {
                   <MenuItem value='pending'>Pending</MenuItem>
                   <MenuItem value='active'>Active</MenuItem>
                   <MenuItem value='inactive'>Inactive</MenuItem>
+                </CustomTextField>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <CustomTextField
+                  select
+                  fullWidth
+                  defaultValue='Select Sentiment'
+                  SelectProps={{
+                    value: sentiment,
+                    displayEmpty: true,
+                    onChange: e => handleSentimentChange(e)
+                  }}
+                >
+                  <MenuItem value=''>Select Sentiment</MenuItem>
+                  <MenuItem value='positive'>Positive</MenuItem>
+                  <MenuItem value='negative'>Negative</MenuItem>
                 </CustomTextField>
               </Grid>
             </Grid>

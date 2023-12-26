@@ -1,12 +1,14 @@
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
 
+export type OverallSentiment = 'positive' | 'negative' | 'neutral'
+
 export type ClientsType = {
   id: number
   clientTitle: string
   clientOwner: string
   clientIndustries: string[]
-  clientOverallSentiment: 'positive' | 'negative'
+  clientOverallSentiment: OverallSentiment
   role: string
   email: string
   status: string

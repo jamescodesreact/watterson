@@ -96,7 +96,7 @@ mock.onPost('/apps/users/add-user').reply(config => {
 
 // GET: DATA
 mock.onGet('/apps/users/list').reply(config => {
-  const { q = '', role = null, status = null, currentPlan = null } = config.params ?? ''
+  const { q = '', role = null, status = null, currentPlan = null, sentiment = null } = config.params ?? ''
 
   const queryLowered = q.toLowerCase()
 
@@ -110,7 +110,8 @@ mock.onGet('/apps/users/list').reply(config => {
           user.status.toLowerCase().includes(queryLowered))) &&
       user.role === (role || user.role) &&
       user.currentPlan === (currentPlan || user.currentPlan) &&
-      user.status === (status || user.status)
+      user.status === (status || user.status) &&
+      user.clientOverallSentiment === (sentiment || user.clientOverallSentiment)
   )
 
   return [

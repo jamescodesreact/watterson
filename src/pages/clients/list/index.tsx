@@ -160,10 +160,10 @@ const columns: GridColDef[] = [
   {
     flex: 0.25,
     minWidth: 280,
-    field: 'fullName',
-    headerName: 'User',
+    field: 'clientDetails',
+    headerName: 'Client | Owner',
     renderCell: ({ row }: CellType) => {
-      const { fullName, email } = row
+      const { clientTitle, clientOwner } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -180,13 +180,30 @@ const columns: GridColDef[] = [
                 '&:hover': { color: 'primary.main' }
               }}
             >
-              {fullName}
+              {clientTitle}
             </Typography>
             <Typography noWrap variant='body2' sx={{ color: 'text.disabled' }}>
-              {email}
+              Owner: {clientOwner}
             </Typography>
           </Box>
         </Box>
+      )
+    }
+  },
+  {
+    flex: 0.1,
+    minWidth: 110,
+    field: 'clientIndustries',
+    headerName: 'Industry',
+    renderCell: ({ row }: CellType) => {
+      return (
+        <CustomChip
+          rounded
+          skin='light'
+          size='small'
+          label={row.clientIndustries}
+          sx={{ textTransform: 'capitalize' }}
+        />
       )
     }
   },
@@ -221,19 +238,6 @@ const columns: GridColDef[] = [
       return (
         <Typography noWrap sx={{ fontWeight: 500, color: 'text.secondary', textTransform: 'capitalize' }}>
           {row.currentPlan}
-        </Typography>
-      )
-    }
-  },
-  {
-    flex: 0.15,
-    minWidth: 190,
-    field: 'billing',
-    headerName: 'Billing',
-    renderCell: ({ row }: CellType) => {
-      return (
-        <Typography noWrap sx={{ color: 'text.secondary' }}>
-          {row.billing}
         </Typography>
       )
     }

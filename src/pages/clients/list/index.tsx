@@ -305,6 +305,7 @@ const UserList = () => {
   const [value, setValue] = useState<string>('')
   const [status, setStatus] = useState<string>('')
   const [sentiment, setSentiment] = useState<string>('')
+  const [industry, setIndustry] = useState<string>('')
   const [addUserOpen, setAddUserOpen] = useState<boolean>(false)
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
 
@@ -319,10 +320,11 @@ const UserList = () => {
         status,
         q: value,
         currentPlan: plan,
-        sentiment
+        sentiment,
+        industry
       })
     )
-  }, [dispatch, plan, role, status, value, sentiment])
+  }, [dispatch, plan, role, status, value, sentiment, industry])
 
   const handleFilter = useCallback((val: string) => {
     setValue(val)
@@ -342,6 +344,10 @@ const UserList = () => {
 
   const handleSentimentChange = useCallback((e: SelectChangeEvent<unknown>) => {
     setSentiment(e.target.value as OverallSentiment)
+  }, [])
+
+  const handleIndustryChange = useCallback((e: SelectChangeEvent<unknown>) => {
+    setIndustry(e.target.value as string)
   }, [])
 
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
@@ -421,6 +427,24 @@ const UserList = () => {
                   <MenuItem value=''>Select Sentiment</MenuItem>
                   <MenuItem value='positive'>Positive</MenuItem>
                   <MenuItem value='negative'>Negative</MenuItem>
+                </CustomTextField>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <CustomTextField
+                  select
+                  fullWidth
+                  defaultValue='Select Industry'
+                  SelectProps={{
+                    value: industry,
+                    displayEmpty: true,
+                    onChange: e => handleIndustryChange(e)
+                  }}
+                >
+                  <MenuItem value=''>Select Industry</MenuItem>
+                  <MenuItem value='technology'>Technology</MenuItem>
+                  <MenuItem value='generative ai'>Generative AI</MenuItem>
+                  <MenuItem value='research'>Research</MenuItem>
+                  <MenuItem value='other'>Other</MenuItem>
                 </CustomTextField>
               </Grid>
             </Grid>

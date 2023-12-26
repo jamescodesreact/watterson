@@ -11,6 +11,7 @@ interface DataParams {
   status: string
   currentPlan: string
   sentiment: string
+  industry: string
 }
 
 interface Redux {

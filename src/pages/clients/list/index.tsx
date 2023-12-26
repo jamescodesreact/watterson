@@ -49,10 +49,6 @@ import { ClientsType, OverallSentiment } from 'src/types/apps/clientTypes'
 import TableHeader from 'src/views/apps/client/list/TableHeader'
 import AddUserDrawer from 'src/views/apps/client/list/AddUserDrawer'
 
-interface UserRoleType {
-  [key: string]: { icon: string; color: string }
-}
-
 interface UserStatusType {
   [key: string]: ThemeColor
 }
@@ -62,20 +58,6 @@ interface CellType {
 }
 
 // ** renders client column
-const userRoleObj: UserRoleType = {
-  admin: { icon: 'tabler:device-laptop', color: 'secondary' },
-  author: { icon: 'tabler:circle-check', color: 'success' },
-  editor: { icon: 'tabler:edit', color: 'info' },
-  maintainer: { icon: 'tabler:chart-pie-2', color: 'primary' },
-  subscriber: { icon: 'tabler:user', color: 'warning' }
-}
-
-const userStatusObj: UserStatusType = {
-  active: 'success',
-  pending: 'warning',
-  inactive: 'secondary'
-}
-
 const clientOverallSentimentObj: UserStatusType = {
   positive: 'success',
   negative: 'warning'
@@ -236,64 +218,12 @@ const columns: GridColDef[] = [
     }
   },
   {
-    flex: 0.15,
-    field: 'role',
-    minWidth: 170,
-    headerName: 'Role',
-    renderCell: ({ row }: CellType) => {
-      return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <CustomAvatar
-            skin='light'
-            sx={{ mr: 4, width: 30, height: 30 }}
-            color={(userRoleObj[row.role].color as ThemeColor) || 'primary'}
-          >
-            <Icon icon={userRoleObj[row.role].icon} />
-          </CustomAvatar>
-          <Typography noWrap sx={{ color: 'text.secondary', textTransform: 'capitalize' }}>
-            {row.role}
-          </Typography>
-        </Box>
-      )
-    }
-  },
-  {
-    flex: 0.1,
-    minWidth: 70,
-    headerName: 'Plan',
-    field: 'currentPlan',
-    renderCell: ({ row }: CellType) => {
-      return (
-        <Typography noWrap sx={{ fontWeight: 500, color: 'text.secondary', textTransform: 'capitalize' }}>
-          {row.currentPlan}
-        </Typography>
-      )
-    }
-  },
-  {
-    flex: 0.1,
-    minWidth: 70,
-    field: 'status',
-    headerName: 'Status',
-    renderCell: ({ row }: CellType) => {
-      return (
-        <CustomChip
-          rounded
-          skin='light'
-          size='small'
-          label={row.status}
-          color={userStatusObj[row.status]}
-          sx={{ textTransform: 'capitalize' }}
-        />
-      )
-    }
-  },
-  {
     flex: 0.07,
     minWidth: 70,
     sortable: false,
     field: 'actions',
     headerName: 'Actions',
+    align: 'right',
     renderCell: ({ row }: CellType) => <RowOptions id={row.id} />
   }
 ]
@@ -330,14 +260,17 @@ const UserList = () => {
     setValue(val)
   }, [])
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleRoleChange = useCallback((e: SelectChangeEvent<unknown>) => {
     setRole(e.target.value as string)
   }, [])
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handlePlanChange = useCallback((e: SelectChangeEvent<unknown>) => {
     setPlan(e.target.value as string)
   }, [])
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleStatusChange = useCallback((e: SelectChangeEvent<unknown>) => {
     setStatus(e.target.value as string)
   }, [])
@@ -356,84 +289,14 @@ const UserList = () => {
     <Grid container spacing={6.5}>
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='Search Filters' />
+          <CardHeader title='Clients' />
           <CardContent>
             <Grid container spacing={6}>
               <Grid item sm={4} xs={12}>
                 <CustomTextField
                   select
                   fullWidth
-                  defaultValue='Select Role'
-                  SelectProps={{
-                    value: role,
-                    displayEmpty: true,
-                    onChange: e => handleRoleChange(e)
-                  }}
-                >
-                  <MenuItem value=''>Select Role</MenuItem>
-                  <MenuItem value='admin'>Admin</MenuItem>
-                  <MenuItem value='author'>Author</MenuItem>
-                  <MenuItem value='editor'>Editor</MenuItem>
-                  <MenuItem value='maintainer'>Maintainer</MenuItem>
-                  <MenuItem value='subscriber'>Subscriber</MenuItem>
-                </CustomTextField>
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomTextField
-                  select
-                  fullWidth
-                  defaultValue='Select Plan'
-                  SelectProps={{
-                    value: plan,
-                    displayEmpty: true,
-                    onChange: e => handlePlanChange(e)
-                  }}
-                >
-                  <MenuItem value=''>Select Plan</MenuItem>
-                  <MenuItem value='basic'>Basic</MenuItem>
-                  <MenuItem value='company'>Company</MenuItem>
-                  <MenuItem value='enterprise'>Enterprise</MenuItem>
-                  <MenuItem value='team'>Team</MenuItem>
-                </CustomTextField>
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomTextField
-                  select
-                  fullWidth
-                  defaultValue='Select Status'
-                  SelectProps={{
-                    value: status,
-                    displayEmpty: true,
-                    onChange: e => handleStatusChange(e)
-                  }}
-                >
-                  <MenuItem value=''>Select Status</MenuItem>
-                  <MenuItem value='pending'>Pending</MenuItem>
-                  <MenuItem value='active'>Active</MenuItem>
-                  <MenuItem value='inactive'>Inactive</MenuItem>
-                </CustomTextField>
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomTextField
-                  select
-                  fullWidth
-                  defaultValue='Select Sentiment'
-                  SelectProps={{
-                    value: sentiment,
-                    displayEmpty: true,
-                    onChange: e => handleSentimentChange(e)
-                  }}
-                >
-                  <MenuItem value=''>Select Sentiment</MenuItem>
-                  <MenuItem value='positive'>Positive</MenuItem>
-                  <MenuItem value='negative'>Negative</MenuItem>
-                </CustomTextField>
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomTextField
-                  select
-                  fullWidth
-                  defaultValue='Select Industry'
+                  defaultValue='Filter by Industry'
                   SelectProps={{
                     value: industry,
                     displayEmpty: true,
@@ -445,6 +308,22 @@ const UserList = () => {
                   <MenuItem value='generative ai'>Generative AI</MenuItem>
                   <MenuItem value='research'>Research</MenuItem>
                   <MenuItem value='other'>Other</MenuItem>
+                </CustomTextField>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <CustomTextField
+                  select
+                  fullWidth
+                  defaultValue='Filter by Sentiment'
+                  SelectProps={{
+                    value: sentiment,
+                    displayEmpty: true,
+                    onChange: e => handleSentimentChange(e)
+                  }}
+                >
+                  <MenuItem value=''>Select Sentiment</MenuItem>
+                  <MenuItem value='positive'>Positive</MenuItem>
+                  <MenuItem value='negative'>Negative</MenuItem>
                 </CustomTextField>
               </Grid>
             </Grid>

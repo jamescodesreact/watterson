@@ -187,3 +187,27 @@ export type HelpCenterArticlesOverviewType = {
   title: string
   subtitle: string
 }
+
+// Latest Coverage
+//---------------
+export type LatestCoverage = {
+  id: number
+  client: string
+  client_company: string
+  post_title: string
+  post_author: string
+  post_date: string
+  sentiment: number
+}
+
+// Negative Sentiment Coverage
+//---------------
+export type NegativeSentimentCoverage = {
+  id: number
+  client: string
+  client_company: string
+  post_title: string
+  post_author: string
+  post_date: string
+  sentiment: number
+}

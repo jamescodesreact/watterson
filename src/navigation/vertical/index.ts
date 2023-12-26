@@ -7,8 +7,8 @@ const navigation = (): VerticalNavItemsType => {
       sectionTitle: 'Start here'
     },
     {
-      title: 'Home',
-      path: '/home',
+      title: 'Dashboard',
+      path: '/dashboard',
       icon: 'tabler:smart-home'
     },
     {

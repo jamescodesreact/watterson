@@ -6,7 +6,7 @@ export type ClientsType = {
   clientTitle: string
   clientOwner: string
   clientIndustries: string[]
-  clientOverallSentiment: string
+  clientOverallSentiment: 'Positive' | 'Negative'
   role: string
   email: string
   status: string

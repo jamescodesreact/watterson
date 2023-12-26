@@ -76,6 +76,11 @@ const userStatusObj: UserStatusType = {
   inactive: 'secondary'
 }
 
+const clientOverallSentimentObj: UserStatusType = {
+  positive: 'success',
+  negative: 'warning'
+}
+
 // ** renders client column
 const renderClient = (row: ClientsType) => {
   if (row.avatar.length) {
@@ -87,7 +92,7 @@ const renderClient = (row: ClientsType) => {
         color={row.avatarColor}
         sx={{ mr: 2.5, width: 38, height: 38, fontWeight: 500, fontSize: theme => theme.typography.body1.fontSize }}
       >
-        {getInitials(row.fullName ? row.fullName : 'John Doe')}
+        {getInitials(row.clientTitle ? row.clientTitle : 'John Doe')}
       </CustomAvatar>
     )
   }
@@ -213,6 +218,24 @@ const columns: GridColDef[] = [
     }
   },
   {
+    flex: 0.1,
+    minWidth: 160,
+    field: 'clientOverallSentiment',
+    headerName: 'Overall Sentiment',
+    renderCell: ({ row }: CellType) => {
+      return (
+        <CustomChip
+          rounded
+          skin='light'
+          size='small'
+          label={row.clientOverallSentiment}
+          color={clientOverallSentimentObj[row.clientOverallSentiment]}
+          sx={{ textTransform: 'capitalize' }}
+        />
+      )
+    }
+  },
+  {
     flex: 0.15,
     field: 'role',
     minWidth: 170,
@@ -235,8 +258,8 @@ const columns: GridColDef[] = [
     }
   },
   {
-    flex: 0.15,
-    minWidth: 120,
+    flex: 0.1,
+    minWidth: 70,
     headerName: 'Plan',
     field: 'currentPlan',
     renderCell: ({ row }: CellType) => {
@@ -249,7 +272,7 @@ const columns: GridColDef[] = [
   },
   {
     flex: 0.1,
-    minWidth: 110,
+    minWidth: 70,
     field: 'status',
     headerName: 'Status',
     renderCell: ({ row }: CellType) => {
@@ -266,8 +289,8 @@ const columns: GridColDef[] = [
     }
   },
   {
-    flex: 0.1,
-    minWidth: 100,
+    flex: 0.07,
+    minWidth: 70,
     sortable: false,
     field: 'actions',
     headerName: 'Actions',

@@ -43,7 +43,7 @@ import axios from 'axios'
 import { RootState, AppDispatch } from 'src/store'
 import { CardStatsType } from 'src/@fake-db/types'
 import { ThemeColor } from 'src/@core/layouts/types'
-import { UsersType } from 'src/types/apps/userTypes'
+import { ClientsType } from 'src/types/watterson/clientTypes'
 
 // ** Custom Table Components Imports
 import TableHeader from 'src/views/clients/list/TableHeader'
@@ -58,7 +58,7 @@ interface UserStatusType {
 }
 
 interface CellType {
-  row: UsersType
+  row: ClientsType
 }
 
 // ** renders client column
@@ -77,7 +77,7 @@ const userStatusObj: UserStatusType = {
 }
 
 // ** renders client column
-const renderClient = (row: UsersType) => {
+const renderClient = (row: ClientsType) => {
   if (row.avatar.length) {
     return <CustomAvatar src={row.avatar} sx={{ mr: 2.5, width: 38, height: 38 }} />
   } else {

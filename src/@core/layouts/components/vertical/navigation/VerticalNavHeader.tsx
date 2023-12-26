@@ -4,18 +4,13 @@ import Link from 'next/link'
 // ** MUI Imports
 import IconButton from '@mui/material/IconButton'
 import Box, { BoxProps } from '@mui/material/Box'
-import { styled, useTheme } from '@mui/material/styles'
-import Typography, { TypographyProps } from '@mui/material/Typography'
+import { styled } from '@mui/material/styles'
 
 // ** Type Import
 import { LayoutProps } from 'src/@core/layouts/types'
 
 // ** Custom Icon Import
 import Icon from 'src/@core/components/icon'
-import { WattersonLogo } from '/public/images/logo2.svg'
-
-// ** Configs
-import themeConfig from 'src/configs/themeConfig'
 
 interface Props {
   navHover: boolean
@@ -40,12 +35,6 @@ const MenuHeaderWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: theme.mixins.toolbar.minHeight
 }))
 
-const HeaderTitle = styled(Typography)<TypographyProps>({
-  fontWeight: 700,
-  lineHeight: '24px',
-  transition: 'opacity .25s ease-in-out, margin .25s ease-in-out'
-})
-
 const LinkStyled = styled(Link)({
   display: 'flex',
   alignItems: 'center',
@@ -68,7 +57,6 @@ const VerticalNavHeader = (props: Props) => {
   } = props
 
   // ** Hooks & Vars
-  const theme = useTheme()
   const { navCollapsed } = settings
 
   const menuCollapsedStyles = navCollapsed && !navHover ? { opacity: 0 } : { opacity: 1 }

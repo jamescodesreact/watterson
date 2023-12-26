@@ -30,6 +30,22 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'tabler:mail'
     },
     {
+      sectionTitle: 'Reports'
+    },
+    {
+      title: 'Reports',
+      path: '/reports',
+      icon: 'tabler:mail'
+    },
+    {
+      sectionTitle: 'Settings & More'
+    },
+    {
+      title: 'Settings',
+      path: '/settings',
+      icon: 'tabler:mail'
+    },
+    {
       path: '/acl',
       action: 'read',
       subject: 'acl-page',

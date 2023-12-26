@@ -18,6 +18,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Icon from 'src/@core/components/icon'
 
 // ** Demo Components Imports
+import UserViewLatestCoverage from './UserViewLatestCoverage'
 import UserViewBilling from 'src/views/apps/user/view/UserViewBilling'
 import UserViewAccount from 'src/views/apps/user/view/UserViewAccount'
 import UserViewSecurity from 'src/views/apps/user/view/UserViewSecurity'
@@ -78,7 +79,7 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
     setActiveTab(value)
     router
       .push({
-        pathname: `/apps/user/view/${value.toLowerCase()}`
+        pathname: `/clients/view/${value.toLowerCase()}`
       })
       .then(() => setIsLoading(false))
   }
@@ -106,6 +107,11 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
         aria-label='forced scroll tabs example'
         sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
       >
+        <Tab
+          value='latest-coverage'
+          label='Latest Coverage'
+          icon={<Icon fontSize='1.125rem' icon='tabler:user-check' />}
+        />
         <Tab value='account' label='Account' icon={<Icon fontSize='1.125rem' icon='tabler:user-check' />} />
         <Tab value='security' label='Security' icon={<Icon fontSize='1.125rem' icon='tabler:lock' />} />
         <Tab
@@ -124,6 +130,9 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
           </Box>
         ) : (
           <>
+            <TabPanel sx={{ p: 0 }} value='latest-coverage'>
+              <UserViewLatestCoverage />
+            </TabPanel>
             <TabPanel sx={{ p: 0 }} value='account'>
               <UserViewAccount invoiceData={invoiceData} />
             </TabPanel>

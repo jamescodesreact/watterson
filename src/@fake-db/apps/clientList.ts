@@ -43,6 +43,44 @@ const data: { users: ClientsType[] } = {
       status: 'inactive',
       avatar: '',
       avatarColor: 'primary'
+    },
+    {
+      id: 3,
+      clientTitle: 'Decision Inc.',
+      clientOwner: 'Cameron Wells',
+      clientIndustries: ['technology', 'generative ai'],
+      clientOverallSentiment: 'positive',
+      billing: 'Auto Debit',
+      fullName: 'Galen Slixby',
+      company: 'Yotz PVT LTD',
+      role: 'maintainer',
+      username: 'gslixby0',
+      country: 'El Salvador',
+      contact: '(479) 232-9151',
+      email: 'gslixby0@abc.net.au',
+      currentPlan: 'enterprise',
+      status: 'inactive',
+      avatar: '',
+      avatarColor: 'primary'
+    },
+    {
+      id: 4,
+      clientTitle: 'NativeVML',
+      clientOwner: 'George Norris',
+      clientIndustries: ['research'],
+      clientOverallSentiment: 'negative',
+      billing: 'Auto Debit',
+      fullName: 'Galen Slixby',
+      company: 'Yotz PVT LTD',
+      role: 'editor',
+      username: 'gslixby0',
+      country: 'El Salvador',
+      contact: '(479) 232-9151',
+      email: 'gslixby0@abc.net.au',
+      currentPlan: 'enterprise',
+      status: 'inactive',
+      avatar: '',
+      avatarColor: 'primary'
     }
   ]
 }

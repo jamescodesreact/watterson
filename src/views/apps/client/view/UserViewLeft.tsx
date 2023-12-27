@@ -101,6 +101,151 @@ const UserViewLeft = () => {
 
             <CardContent sx={{ pb: 4 }}>
               <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Companies
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='company'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Regions
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='Australia'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='New Zealand'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Products
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='product'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Spokepersons
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='person one'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Competitors
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='competitor one'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Competitors
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='competitor one'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Industries
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='competitor one'
+                    sx={{ textTransform: 'capitalize', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                Exclusions
+              </Typography>
+              <Box sx={{ pt: 4 }}>
+                <Box sx={{ display: 'flex' }}>
+                  <CustomChip
+                    rounded
+                    skin='light'
+                    size='small'
+                    label='.co.za'
+                    sx={{ textTransform: 'lowercase', mr: 1 }}
+                  />
+                </Box>
+              </Box>
+            </CardContent>
+
+            <Divider sx={{ my: '0 !important', mx: 6 }} />
+
+            <CardContent sx={{ pb: 4 }}>
+              <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
                 Details
               </Typography>
               <Box sx={{ pt: 4 }}>
@@ -111,35 +256,6 @@ const UserViewLeft = () => {
                 <Box sx={{ display: 'flex', mb: 3 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Email:</Typography>
                   <Typography sx={{ color: 'text.secondary' }}>{data.email}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', mb: 3, alignItems: 'center' }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Status:</Typography>
-                  <CustomChip
-                    rounded
-                    skin='light'
-                    size='small'
-                    label={data.status}
-                    color={statusColors[data.status]}
-                    sx={{
-                      textTransform: 'capitalize'
-                    }}
-                  />
-                </Box>
-                <Box sx={{ display: 'flex', mb: 3 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Role:</Typography>
-                  <Typography sx={{ color: 'text.secondary', textTransform: 'capitalize' }}>{data.role}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', mb: 3 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Tax ID:</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>Tax-8894</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', mb: 3 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Contact:</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>+1 {data.contact}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', mb: 3 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Language:</Typography>
-                  <Typography sx={{ color: 'text.secondary' }}>English</Typography>
                 </Box>
                 <Box sx={{ display: 'flex' }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>Country:</Typography>

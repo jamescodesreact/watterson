@@ -9,6 +9,7 @@ export type ClientsType = {
   clientOwner: ClientOwnerType
   clientIndustries: ClientIndustryType[]
   clientOverallSentiment: OverallSentiment
+  clientKeywords: ClientKeywordType[]
   role: string
   email: string
   status: string
@@ -30,7 +31,18 @@ export type ClientIndustryType = {
 
 export type ClientOwnerType = {
   id: number
-  clientOwnerName: string
+  name: string
+}
+
+export type ClientKeywordType = {
+  id: number
+  title: string
+  keywords: KeywordType[]
+}
+
+export type KeywordType = {
+  id: number
+  name: string
 }
 
 export type ProjectListDataType = {

@@ -9,12 +9,30 @@ const data: { users: ClientsType[] } = {
     {
       id: 1,
       clientTitle: 'Decision Inc.',
-      clientOwner: { id: 1, clientOwnerName: 'Cameron Wells' },
+      clientOwner: { id: 1, name: 'Cameron Wells' },
       clientIndustries: [
         { id: 1, title: 'technology' },
         { id: 2, title: 'generative ai' }
       ],
       clientOverallSentiment: 'positive',
+      clientKeywords: [
+        {
+          id: 1,
+          title: 'innovation',
+          keywords: [
+            { id: 1, name: 'technology' },
+            { id: 2, name: 'automation' }
+          ]
+        },
+        {
+          id: 1,
+          title: 'culture',
+          keywords: [
+            { id: 1, name: 'art' },
+            { id: 2, name: 'communication' }
+          ]
+        }
+      ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
       company: 'Yotz PVT LTD',
@@ -31,9 +49,27 @@ const data: { users: ClientsType[] } = {
     {
       id: 2,
       clientTitle: 'Ogilvy & Mather',
-      clientOwner: { id: 2, clientOwnerName: 'Pete Case' },
+      clientOwner: { id: 2, name: 'Pete Case' },
       clientIndustries: [{ id: 3, title: 'research' }],
       clientOverallSentiment: 'negative',
+      clientKeywords: [
+        {
+          id: 3,
+          title: 'marketing',
+          keywords: [
+            { id: 3, name: 'digital' },
+            { id: 4, name: 'advertising' }
+          ]
+        },
+        {
+          id: 3,
+          title: 'IT',
+          keywords: [
+            { id: 3, name: 'development' },
+            { id: 4, name: 'application' }
+          ]
+        }
+      ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
       company: 'Yotz PVT LTD',

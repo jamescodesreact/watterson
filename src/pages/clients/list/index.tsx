@@ -159,7 +159,8 @@ const columns: GridColDef[] = [
             <Typography
               noWrap
               component={Link}
-              href='/clients/view/latest-coverage'
+              href={`/clients/${row.id}`}
+              passHref
               sx={{
                 fontWeight: 500,
                 textDecoration: 'none',

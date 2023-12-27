@@ -82,6 +82,43 @@ const data: { users: ClientsType[]; covers: CoverType[] } = {
       status: 'inactive',
       avatar: '',
       avatarColor: 'primary'
+    },
+    {
+      id: 3,
+      clientTitle: 'Native VML',
+      clientOwner: { id: 2, name: 'Ben Wagner' },
+      clientIndustries: [{ id: 3, title: 'research' }],
+      clientOverallSentiment: 'negative',
+      clientKeywords: [
+        {
+          id: 3,
+          title: 'marketing',
+          keywords: [
+            { id: 3, name: 'digital' },
+            { id: 4, name: 'advertising' }
+          ]
+        },
+        {
+          id: 3,
+          title: 'IT',
+          keywords: [
+            { id: 3, name: 'development' },
+            { id: 4, name: 'application' }
+          ]
+        }
+      ],
+      billing: 'Auto Debit',
+      fullName: 'Galen Slixby',
+      company: 'Yotz PVT LTD',
+      role: 'editor',
+      username: 'gslixby0',
+      country: 'El Salvador',
+      contact: '(479) 232-9151',
+      email: 'gslixby0@abc.net.au',
+      currentPlan: 'enterprise',
+      status: 'inactive',
+      avatar: '',
+      avatarColor: 'primary'
     }
   ],
   covers: [

@@ -170,7 +170,7 @@ const columns: GridColDef[] = [
               {clientTitle}
             </Typography>
             <Typography noWrap variant='body2' sx={{ color: 'text.disabled' }}>
-              Owner: {clientOwner.clientOwnerName}
+              Owner: {clientOwner.name}
             </Typography>
           </Box>
         </Box>

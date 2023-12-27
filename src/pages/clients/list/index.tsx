@@ -170,7 +170,7 @@ const columns: GridColDef[] = [
               {clientTitle}
             </Typography>
             <Typography noWrap variant='body2' sx={{ color: 'text.disabled' }}>
-              Owner: {clientOwner}
+              Owner: {clientOwner.clientOwnerName}
             </Typography>
           </Box>
         </Box>
@@ -184,18 +184,18 @@ const columns: GridColDef[] = [
     headerName: 'Industries',
     renderCell: ({ row }: CellType) => {
       return (
-        <Box>
-          {row.clientIndustries.map((industry, index) => (
+        <div>
+          {row.clientIndustries.map(industry => (
             <CustomChip
-              key={index}
+              key={industry.id}
               rounded
               skin='light'
               size='small'
-              label={industry}
+              label={industry.title}
               sx={{ textTransform: 'capitalize', mr: 1 }}
             />
           ))}
-        </Box>
+        </div>
       )
     }
   },

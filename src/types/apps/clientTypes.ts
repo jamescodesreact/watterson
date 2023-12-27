@@ -6,8 +6,8 @@ export type OverallSentiment = 'positive' | 'negative' | 'neutral'
 export type ClientsType = {
   id: number
   clientTitle: string
-  clientOwner: string
-  clientIndustries: string[]
+  clientOwner: ClientOwnerType
+  clientIndustries: ClientIndustryType[]
   clientOverallSentiment: OverallSentiment
   role: string
   email: string
@@ -21,6 +21,16 @@ export type ClientsType = {
   username: string
   currentPlan: string
   avatarColor?: ThemeColor
+}
+
+export type ClientIndustryType = {
+  id: number
+  title: string
+}
+
+export type ClientOwnerType = {
+  id: number
+  clientOwnerName: string
 }
 
 export type ProjectListDataType = {

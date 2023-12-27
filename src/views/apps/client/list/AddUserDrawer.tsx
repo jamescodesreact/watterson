@@ -155,7 +155,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
       sx={{ '& .MuiDrawer-paper': { width: { xs: 300, sm: 400 } } }}
     >
       <Header>
-        <Typography variant='h5'>Add User</Typography>
+        <Typography variant='h5'>Add Client</Typography>
         <IconButton
           size='small'
           onClick={handleClose}

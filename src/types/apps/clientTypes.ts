@@ -24,6 +24,25 @@ export type ClientsType = {
   avatarColor?: ThemeColor
 }
 
+export type CoverType = {
+  id: number
+  title: string
+  clientId: number // Link to the id of the user
+  publication: { id: number; title: string } // Object array with id and title
+  author: { id: number; title: string } // Object array with id and title
+  link: string
+  type: string
+  sentimentRating: string
+  sentimentSummary: string
+  articleSummary: string
+  relevance: boolean
+}
+
+export type Data = {
+  users: ClientsType[]
+  covers: CoverType[]
+}
+
 export type ClientIndustryType = {
   id: number
   title: string
@@ -45,6 +64,7 @@ export type KeywordType = {
   name: string
 }
 
+// Ignore from here lol
 export type ProjectListDataType = {
   id: number
   img: string

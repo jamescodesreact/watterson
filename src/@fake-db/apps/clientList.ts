@@ -2,9 +2,9 @@
 import mock from 'src/@fake-db/mock'
 
 // ** Types
-import { ClientsType, ProjectListDataType } from 'src/types/apps/clientTypes'
+import { ClientsType, CoverType, ProjectListDataType } from 'src/types/apps/clientTypes'
 
-const data: { users: ClientsType[] } = {
+const data: { users: ClientsType[]; covers: CoverType[] } = {
   users: [
     {
       id: 1,
@@ -82,6 +82,34 @@ const data: { users: ClientsType[] } = {
       status: 'inactive',
       avatar: '',
       avatarColor: 'primary'
+    }
+  ],
+  covers: [
+    {
+      id: 1,
+      title: 'Cover Title 1',
+      clientId: 1,
+      publication: { id: 1, title: 'Publication 1' }, // Object array with id and title
+      author: { id: 1, title: 'Author 1' }, // Object array with id and title
+      link: 'Link 1',
+      type: 'Type 1',
+      sentimentRating: 'Positive',
+      sentimentSummary: 'Positive summary',
+      articleSummary: 'Article summary 1',
+      relevance: true
+    },
+    {
+      id: 2,
+      title: 'Cover Title 2',
+      clientId: 2,
+      publication: { id: 2, title: 'Publication 2' }, // Object array with id and title
+      author: { id: 2, title: 'Author 2' }, // Object array with id and title
+      link: 'Link 2',
+      type: 'Type 2',
+      sentimentRating: 'Negative',
+      sentimentSummary: 'Negative summary',
+      articleSummary: 'Article summary 2',
+      relevance: false
     }
   ]
 }

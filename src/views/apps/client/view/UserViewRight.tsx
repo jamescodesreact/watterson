@@ -18,8 +18,11 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Icon from 'src/@core/components/icon'
 
 // ** Demo Components Imports
-import UserViewLatestCoverage from './UserViewLatestCoverage'
-import UserViewBlankTab from './UserViewBlankTab'
+import UserViewBilling from 'src/views/apps/user/view/UserViewBilling'
+import UserViewAccount from 'src/views/apps/user/view/UserViewAccount'
+import UserViewSecurity from 'src/views/apps/user/view/UserViewSecurity'
+import UserViewConnection from 'src/views/apps/user/view/UserViewConnection'
+import UserViewNotification from 'src/views/apps/user/view/UserViewNotification'
 
 // ** Types
 import { InvoiceType } from 'src/types/apps/invoiceTypes'
@@ -75,7 +78,7 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
     setActiveTab(value)
     router
       .push({
-        pathname: `/clients/view/${value.toLowerCase()}`
+        pathname: `/apps/user/view/${value.toLowerCase()}`
       })
       .then(() => setIsLoading(false))
   }
@@ -96,7 +99,6 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
 
   return (
     <TabContext value={activeTab}>
-      {/* Tab Heading buttons here */}
       <TabList
         variant='scrollable'
         scrollButtons='auto'
@@ -104,12 +106,15 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
         aria-label='forced scroll tabs example'
         sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
       >
+        <Tab value='account' label='Account' icon={<Icon fontSize='1.125rem' icon='tabler:user-check' />} />
+        <Tab value='security' label='Security' icon={<Icon fontSize='1.125rem' icon='tabler:lock' />} />
         <Tab
-          value='latest-coverage'
-          label='Latest Coverage'
-          icon={<Icon fontSize='1.125rem' icon='tabler:user-check' />}
+          value='billing-plan'
+          label='Billing & Plan'
+          icon={<Icon fontSize='1.125rem' icon='tabler:currency-dollar' />}
         />
-        <Tab value='blank-tab' label='Blank Tab' icon={<Icon fontSize='1.125rem' icon='tabler:user-check' />} />
+        <Tab value='notification' label='Notification' icon={<Icon fontSize='1.125rem' icon='tabler:bell' />} />
+        <Tab value='connection' label='Connection' icon={<Icon fontSize='1.125rem' icon='tabler:link' />} />
       </TabList>
       <Box sx={{ mt: 4 }}>
         {isLoading ? (
@@ -119,11 +124,20 @@ const UserViewRight = ({ tab, invoiceData }: Props) => {
           </Box>
         ) : (
           <>
-            <TabPanel sx={{ p: 0 }} value='latest-coverage'>
-              <UserViewLatestCoverage />
+            <TabPanel sx={{ p: 0 }} value='account'>
+              <UserViewAccount invoiceData={invoiceData} />
             </TabPanel>
-            <TabPanel sx={{ p: 0 }} value='blank-tab'>
-              <UserViewBlankTab />
+            <TabPanel sx={{ p: 0 }} value='security'>
+              <UserViewSecurity />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value='billing-plan'>
+              <UserViewBilling />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value='notification'>
+              <UserViewNotification />
+            </TabPanel>
+            <TabPanel sx={{ p: 0 }} value='connection'>
+              <UserViewConnection />
             </TabPanel>
           </>
         )}

@@ -54,8 +54,8 @@ export const deleteUser = createAsyncThunk(
   }
 )
 
-export const appUsersSlice = createSlice({
-  name: 'appUsers',
+export const clientSlice = createSlice({
+  name: 'client',
   initialState: {
     data: [],
     total: 1,
@@ -73,4 +73,4 @@ export const appUsersSlice = createSlice({
   }
 })
 
-export default appUsersSlice.reducer
+export default clientSlice.reducer

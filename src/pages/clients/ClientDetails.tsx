@@ -61,7 +61,7 @@ const ClientDetails = ({ tab }: Props) => {
   const [activeTab, setActiveTab] = useState<string>('latest-coverage') // Set the initial activeTab to 'latest-coverage'
   const [isLoading, setIsLoading] = useState<boolean>(false) // Set isLoading to false initially
   const { clientId } = router.query
-  const clients = useSelector((state: RootState) => state.client.data)
+  const clients: ClientsType[] = useSelector((state: RootState) => state.client.data)
 
   useEffect(() => {
     if (tab && tab !== activeTab) {
@@ -72,7 +72,7 @@ const ClientDetails = ({ tab }: Props) => {
   }, [tab])
 
   // Find the client with the matching ID
-  const selectedClient: ClientsType | undefined = clients.find(client => client.id === Number(clientId))
+  const selectedClient = clients.find(client => client.id === Number(clientId))
 
   if (!selectedClient) {
     return <div>Loading...</div>
@@ -97,10 +97,10 @@ const ClientDetails = ({ tab }: Props) => {
             <Card>
               <CardContent sx={{ pt: 13.5, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                 <Typography variant='h4' sx={{ mb: 3 }}>
-                  {selectedClient.clientTitle}
+                  {selectedClient?.clientTitle}
                 </Typography>
                 <Typography variant='h4' sx={{ mb: 3 }}>
-                  {selectedClient.clientOwner.name}
+                  {selectedClient?.clientOwner?.name}
                 </Typography>
                 {/* Add other client details here */}
               </CardContent>

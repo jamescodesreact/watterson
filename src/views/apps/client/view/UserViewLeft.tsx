@@ -37,9 +37,13 @@ interface ColorsType {
 const data: ClientsType = {
   id: 1,
   clientTitle: 'Decision Inc.',
-  clientOwner: 'Cameron Wells',
-  clientIndustries: ['technology', 'generative ai'],
+  clientOwner: { id: 1, name: 'Cameron Wells' },
+  clientIndustries: [
+    { id: 1, title: 'technology' },
+    { id: 2, title: 'generative ai' }
+  ],
   clientOverallSentiment: 'positive',
+  clientKeywords: [],
   role: 'admin',
   status: 'active',
   username: 'gslixby0',
@@ -61,13 +65,6 @@ const roleColors: ColorsType = {
   maintainer: 'success',
   subscriber: 'primary'
 }
-
-const statusColors: ColorsType = {
-  active: 'success',
-  pending: 'warning',
-  inactive: 'secondary'
-}
-
 const UserViewLeft = () => {
   // ** States
   const [openEdit, setOpenEdit] = useState<boolean>(false)

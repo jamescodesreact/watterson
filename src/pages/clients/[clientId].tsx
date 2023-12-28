@@ -10,7 +10,7 @@ const ClientDetailsPage = () => {
   const dispatch = useDispatch<AppDispatch>()
   dispatch(fetchData({ q: '', role: '', status: '', currentPlan: '', sentiment: '', industry: '' }))
 
-  return <ClientDetails />
+  return <ClientDetails tab='latest-coverage' />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

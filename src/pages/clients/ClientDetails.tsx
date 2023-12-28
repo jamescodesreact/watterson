@@ -86,11 +86,40 @@ const ClientDetails = ({ tab }: Props) => {
 
   return (
     <Grid container spacing={6}>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <Typography variant='h2'>{selectedClient?.clientTitle}</Typography>
         <Typography variant='body1'>Owner: {selectedClient?.clientOwner?.name}</Typography>
       </Grid>
-      <Grid item xs={6} textAlign={'right'}>
+      <Grid item xs={4}>
+        <Typography variant='body2'>Industries</Typography>
+        <Box sx={{ display: 'flex' }}>
+          {/* Loop through clientIndustries and render a CustomChip for each one */}
+          {selectedClient?.clientIndustries.map(industry => (
+            <CustomChip
+              key={industry.id}
+              rounded
+              skin='light'
+              size='small'
+              label={industry.title}
+              sx={{ textTransform: 'capitalize', mr: 1 }}
+            />
+          ))}
+        </Box>
+      </Grid>
+      <Grid item xs={1}>
+        <Typography variant='body2'>Overall Sentiment</Typography>
+        <Box sx={{ display: 'flex' }}>
+          {/* Display a CustomChip for clientOverallSentiment */}
+          <CustomChip
+            rounded
+            skin='light'
+            size='small'
+            label={selectedClient?.clientOverallSentiment}
+            sx={{ textTransform: 'capitalize', mr: 1 }}
+          />
+        </Box>
+      </Grid>
+      <Grid item xs={3} textAlign={'right'}>
         <Button variant='contained' sx={{ mr: 2 }}>
           Add Cover
         </Button>

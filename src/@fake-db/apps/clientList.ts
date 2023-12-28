@@ -4,8 +4,8 @@ import mock from 'src/@fake-db/mock'
 // ** Types
 import { ClientsType, CoverType, ProjectListDataType } from 'src/types/apps/clientTypes'
 
-const data: { users: ClientsType[]; covers: CoverType[] } = {
-  users: [
+const data: { clients: ClientsType[]; covers: CoverType[] } = {
+  clients: [
     {
       id: 1,
       clientTitle: 'Decision Inc.',
@@ -32,6 +32,10 @@ const data: { users: ClientsType[]; covers: CoverType[] } = {
             { id: 2, name: 'communication' }
           ]
         }
+      ],
+      clientCompanies: [
+        { id: 1, name: 'company 1' },
+        { id: 2, name: 'company 2' }
       ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
@@ -70,6 +74,10 @@ const data: { users: ClientsType[]; covers: CoverType[] } = {
           ]
         }
       ],
+      clientCompanies: [
+        { id: 1, name: 'company 1' },
+        { id: 2, name: 'company 2' }
+      ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
       company: 'Yotz PVT LTD',
@@ -106,6 +114,10 @@ const data: { users: ClientsType[]; covers: CoverType[] } = {
             { id: 4, name: 'application' }
           ]
         }
+      ],
+      clientCompanies: [
+        { id: 1, name: 'company 1' },
+        { id: 2, name: 'company 2' }
       ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
@@ -189,11 +201,11 @@ mock.onPost('/apps/users/add-user').reply(config => {
   // Get event from post data
   const user = JSON.parse(config.data).data
 
-  const lastId = Math.max(...data.users.map(u => u.id), 0)
+  const lastId = Math.max(...data.clients.map(u => u.id), 0)
 
   user.id = lastId + 1
 
-  data.users.unshift({ ...user, avatar: '', avatarColor: 'primary', status: 'active' })
+  data.clients.unshift({ ...user, avatar: '', avatarColor: 'primary', status: 'active' })
 
   return [201, { user }]
 })
@@ -211,25 +223,25 @@ mock.onGet('/apps/users/list').reply(config => {
 
   const queryLowered = q.toLowerCase()
 
-  const filteredData = data.users.filter(
-    user =>
-      (user.username.toLowerCase().includes(queryLowered) ||
-        user.fullName.toLowerCase().includes(queryLowered) ||
-        user.role.toLowerCase().includes(queryLowered) ||
-        (user.email.toLowerCase().includes(queryLowered) &&
-          user.currentPlan.toLowerCase().includes(queryLowered) &&
-          user.status.toLowerCase().includes(queryLowered))) &&
-      user.role === (role || user.role) &&
-      user.currentPlan === (currentPlan || user.currentPlan) &&
-      user.status === (status || user.status) &&
-      user.clientOverallSentiment === (sentiment || user.clientOverallSentiment) &&
-      (industry ? user.clientIndustries.includes(industry) : true)
+  const filteredData = data.clients.filter(
+    client =>
+      (client.username.toLowerCase().includes(queryLowered) ||
+        client.fullName.toLowerCase().includes(queryLowered) ||
+        client.role.toLowerCase().includes(queryLowered) ||
+        (client.email.toLowerCase().includes(queryLowered) &&
+          client.currentPlan.toLowerCase().includes(queryLowered) &&
+          client.status.toLowerCase().includes(queryLowered))) &&
+      client.role === (role || client.role) &&
+      client.currentPlan === (currentPlan || client.currentPlan) &&
+      client.status === (status || client.status) &&
+      client.clientOverallSentiment === (sentiment || client.clientOverallSentiment) &&
+      (industry ? client.clientIndustries.includes(industry) : true)
   )
 
   return [
     200,
     {
-      allData: data.users,
+      allData: data.clients,
       users: filteredData,
       params: config.params,
       total: filteredData.length
@@ -242,8 +254,8 @@ mock.onDelete('/apps/users/delete').reply(config => {
   // Get user id from URL
   const userId = config.data
 
-  const userIndex = data.users.findIndex(t => t.id === userId)
-  data.users.splice(userIndex, 1)
+  const userIndex = data.clients.findIndex(t => t.id === userId)
+  data.clients.splice(userIndex, 1)
 
   return [200]
 })

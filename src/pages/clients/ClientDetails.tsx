@@ -18,6 +18,8 @@ import MuiTab, { TabProps } from '@mui/material/Tab'
 import MuiTabList, { TabListProps } from '@mui/lab/TabList'
 import Button from '@mui/material/Button'
 import CardActions from '@mui/material/CardActions'
+import TableLatestCoverage from '../../views/table/data-grid/TableLatestCoverage'
+import CustomChip from '../../@core/components/mui/chip'
 
 interface Props {
   tab: string
@@ -86,23 +88,164 @@ const ClientDetails = ({ tab }: Props) => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={6}>
-        <h2>Welcome back, Leigh.</h2>
+        <Typography variant='h2'>{selectedClient?.clientTitle}</Typography>
+        <Typography variant='body1'>Owner: {selectedClient?.clientOwner?.name}</Typography>
       </Grid>
       <Grid item xs={6} textAlign={'right'}>
-        <h2>Welcome back, Leigh.</h2>
+        <Button variant='contained' sx={{ mr: 2 }}>
+          Add Cover
+        </Button>
+        <Button variant='contained' sx={{ mr: 2 }}>
+          Add Client
+        </Button>
       </Grid>
       <Grid item xs={12} md={5} lg={4}>
         <Grid container spacing={6}>
           <Grid item xs={12}>
             <Card>
-              <CardContent sx={{ pt: 13.5, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                <Typography variant='h4' sx={{ mb: 3 }}>
-                  {selectedClient?.clientTitle}
+              <Divider sx={{ my: '0 !important', mx: 6 }} />
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Companies
                 </Typography>
-                <Typography variant='h4' sx={{ mb: 3 }}>
-                  {selectedClient?.clientOwner?.name}
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='Company'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Regions
                 </Typography>
-                {/* Add other client details here */}
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='Australia'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='New Zealand'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Products
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='product'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Spokepersons
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='person one'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Competitors
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='competitor one'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Competitors
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='competitor one'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Industries
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='competitor one'
+                      sx={{ textTransform: 'capitalize', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
+              </CardContent>
+
+              <CardContent sx={{ pb: 4 }}>
+                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                  Exclusions
+                </Typography>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex' }}>
+                    <CustomChip
+                      rounded
+                      skin='light'
+                      size='small'
+                      label='.co.za'
+                      sx={{ textTransform: 'lowercase', mr: 1 }}
+                    />
+                  </Box>
+                </Box>
               </CardContent>
 
               <Divider sx={{ my: '0 !important', mx: 6 }} />
@@ -144,7 +287,7 @@ const ClientDetails = ({ tab }: Props) => {
             ) : (
               <>
                 <TabPanel sx={{ p: 0 }} value='latest-coverage'>
-                  <p>tab 1</p>
+                  <TableLatestCoverage />
                 </TabPanel>
                 <TabPanel sx={{ p: 0 }} value='blank-tab'>
                   <p>tab 2</p>

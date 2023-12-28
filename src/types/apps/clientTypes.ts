@@ -10,6 +10,7 @@ export type ClientsType = {
   clientIndustries: ClientIndustryType[]
   clientOverallSentiment: OverallSentiment
   clientKeywords: ClientKeywordType[]
+  clientCompanies: ClientCompaniesType[]
   role: string
   email: string
   status: string
@@ -46,6 +47,11 @@ export type Data = {
 export type ClientIndustryType = {
   id: number
   title: string
+}
+
+export type ClientCompaniesType = {
+  id: number
+  name: string
 }
 
 export type ClientOwnerType = {

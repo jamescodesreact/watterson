@@ -17,7 +17,6 @@ import { styled } from '@mui/material/styles'
 import MuiTab, { TabProps } from '@mui/material/Tab'
 import MuiTabList, { TabListProps } from '@mui/lab/TabList'
 import Button from '@mui/material/Button'
-import CardActions from '@mui/material/CardActions'
 import TableLatestCoverage from '../../views/table/data-grid/TableLatestCoverage'
 import CustomChip from '../../@core/components/mui/chip'
 
@@ -103,160 +102,52 @@ const ClientDetails = ({ tab }: Props) => {
         <Grid container spacing={6}>
           <Grid item xs={12}>
             <Card>
+              <CardContent sx={{ pb: 4 }}>
+                <Grid item xs={12} direction={'column'}>
+                  <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                    Keywords
+                  </Typography>
+                </Grid>
+                <Box sx={{ pt: 4 }}>
+                  <Box sx={{ display: 'flex', mb: 3 }}>
+                    <Typography sx={{ mr: 2, fontWeight: 500, color: 'text.secondary' }}>total keywords: 50</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', mb: 3 }}>
+                    <Button variant='contained' sx={{ mr: 2 }}>
+                      Edit
+                    </Button>
+                  </Box>
+                </Box>
+              </CardContent>
               <Divider sx={{ my: '0 !important', mx: 6 }} />
 
               <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Companies
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='Company'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Regions
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='Australia'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='New Zealand'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Products
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='product'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Spokepersons
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='person one'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Competitors
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='competitor one'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Competitors
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='competitor one'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Industries
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='competitor one'
-                      sx={{ textTransform: 'capitalize', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-
-              <CardContent sx={{ pb: 4 }}>
-                <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
-                  Exclusions
-                </Typography>
-                <Box sx={{ pt: 4 }}>
-                  <Box sx={{ display: 'flex' }}>
-                    <CustomChip
-                      rounded
-                      skin='light'
-                      size='small'
-                      label='.co.za'
-                      sx={{ textTransform: 'lowercase', mr: 1 }}
-                    />
-                  </Box>
-                </Box>
+                {/* Map through clientKeywords and render chips for each keyword group */}
+                {selectedClient?.clientKeywords.map((keywordGroup, index) => (
+                  <div key={index}>
+                    <Typography variant='body2' sx={{ color: 'text.disabled', textTransform: 'uppercase' }}>
+                      {keywordGroup.title}
+                    </Typography>
+                    <Box sx={{ pt: 4 }}>
+                      <Box sx={{ display: 'flex', mb: 4 }}>
+                        {/* Map through keywords in the current keyword group and render a CustomChip for each one */}
+                        {keywordGroup.keywords.map(keyword => (
+                          <CustomChip
+                            key={keyword.id}
+                            rounded
+                            skin='light'
+                            size='small'
+                            label={keyword.name}
+                            sx={{ textTransform: 'capitalize', mr: 1 }}
+                          />
+                        ))}
+                      </Box>
+                    </Box>
+                  </div>
+                ))}
               </CardContent>
 
               <Divider sx={{ my: '0 !important', mx: 6 }} />
-              <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Button variant='contained' sx={{ mr: 2 }}>
-                  Edit
-                </Button>
-                <Button color='error' variant='tonal'>
-                  Suspend
-                </Button>
-              </CardActions>
             </Card>
           </Grid>
         </Grid>

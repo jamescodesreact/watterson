@@ -18,24 +18,20 @@ const data: { clients: ClientsType[]; covers: CoverType[] } = {
       clientKeywords: [
         {
           id: 1,
-          title: 'innovation',
+          title: 'companies',
           keywords: [
-            { id: 1, name: 'technology' },
-            { id: 2, name: 'automation' }
+            { id: 1, name: 'barclays' },
+            { id: 2, name: 'ascension ai' }
           ]
         },
         {
-          id: 1,
-          title: 'culture',
+          id: 2,
+          title: 'regions',
           keywords: [
             { id: 1, name: 'art' },
             { id: 2, name: 'communication' }
           ]
         }
-      ],
-      clientCompanies: [
-        { id: 1, name: 'company 1' },
-        { id: 2, name: 'company 2' }
       ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',
@@ -73,51 +69,6 @@ const data: { clients: ClientsType[]; covers: CoverType[] } = {
             { id: 4, name: 'application' }
           ]
         }
-      ],
-      clientCompanies: [
-        { id: 1, name: 'company 1' },
-        { id: 2, name: 'company 2' }
-      ],
-      billing: 'Auto Debit',
-      fullName: 'Galen Slixby',
-      company: 'Yotz PVT LTD',
-      role: 'editor',
-      username: 'gslixby0',
-      country: 'El Salvador',
-      contact: '(479) 232-9151',
-      email: 'gslixby0@abc.net.au',
-      currentPlan: 'enterprise',
-      status: 'inactive',
-      avatar: '',
-      avatarColor: 'primary'
-    },
-    {
-      id: 3,
-      clientTitle: 'Native VML',
-      clientOwner: { id: 2, name: 'Ben Wagner' },
-      clientIndustries: [{ id: 3, title: 'research' }],
-      clientOverallSentiment: 'negative',
-      clientKeywords: [
-        {
-          id: 3,
-          title: 'marketing',
-          keywords: [
-            { id: 3, name: 'digital' },
-            { id: 4, name: 'advertising' }
-          ]
-        },
-        {
-          id: 3,
-          title: 'IT',
-          keywords: [
-            { id: 3, name: 'development' },
-            { id: 4, name: 'application' }
-          ]
-        }
-      ],
-      clientCompanies: [
-        { id: 1, name: 'company 1' },
-        { id: 2, name: 'company 2' }
       ],
       billing: 'Auto Debit',
       fullName: 'Galen Slixby',

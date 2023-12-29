@@ -25,9 +25,6 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'tabler:mail'
     },
     {
-      sectionTitle: 'Reports'
-    },
-    {
       title: 'Reports',
       path: '/reports',
       icon: 'tabler:mail'

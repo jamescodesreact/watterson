@@ -100,7 +100,7 @@ const UserDropdown = (props: Props) => {
         }}
       >
         <Avatar
-          alt='John Doe'
+          alt='James Cells'
           src='/images/avatars/1.png'
           onClick={handleDropdownOpen}
           sx={{ width: 38, height: 38 }}

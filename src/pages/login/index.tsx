@@ -33,9 +33,6 @@ import { useAuth } from 'src/hooks/useAuth'
 import useBgColor from 'src/@core/hooks/useBgColor'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
-// ** Configs
-import themeConfig from 'src/configs/themeConfig'
-
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
@@ -130,8 +127,6 @@ const LoginPage = () => {
     })
   }
 
-  const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
-
   return (
     <Box className='content-right' sx={{ backgroundColor: 'background.paper' }}>
       {!hidden ? (
@@ -141,13 +136,13 @@ const LoginPage = () => {
             display: 'flex',
             position: 'relative',
             alignItems: 'center',
-            borderRadius: '20px',
+            borderRadius: '0px',
             justifyContent: 'center',
             backgroundColor: 'customColors.bodyBg',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
-          <LoginIllustration alt='login-illustration' src={`/images/pages/${imageSource}-${theme.palette.mode}.png`} />
+          <LoginIllustration alt='login-illustration' src={`/images/pages/bg-login.jpg`} />
           <FooterIllustrationsV2 />
         </Box>
       ) : null}
@@ -306,12 +301,6 @@ const LoginPage = () => {
               <Button fullWidth type='submit' variant='contained' sx={{ mb: 4 }}>
                 Login
               </Button>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
-                <Typography href='/register' component={LinkStyled}>
-                  Create an account
-                </Typography>
-              </Box>
               <Divider
                 sx={{
                   color: 'text.disabled',

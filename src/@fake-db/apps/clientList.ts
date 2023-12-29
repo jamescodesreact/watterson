@@ -31,6 +31,46 @@ const data: { clients: ClientsType[]; covers: CoverType[] } = {
             { id: 1, name: 'art' },
             { id: 2, name: 'communication' }
           ]
+        },
+        {
+          id: 2,
+          title: 'products',
+          keywords: [
+            { id: 1, name: 'product 1' },
+            { id: 2, name: 'product 2' }
+          ]
+        },
+        {
+          id: 2,
+          title: 'spokespersons',
+          keywords: [
+            { id: 1, name: 'spokeperson one' },
+            { id: 2, name: 'spokeperson 2' }
+          ]
+        },
+        {
+          id: 2,
+          title: 'competitor',
+          keywords: [
+            { id: 1, name: 'competitor 1' },
+            { id: 2, name: 'competitor 2' }
+          ]
+        },
+        {
+          id: 2,
+          title: 'industries',
+          keywords: [
+            { id: 1, name: 'industries 1' },
+            { id: 2, name: 'industries 2' }
+          ]
+        },
+        {
+          id: 2,
+          title: 'exclusions',
+          keywords: [
+            { id: 1, name: '.co.za' },
+            { id: 2, name: '.com' }
+          ]
         }
       ],
       billing: 'Auto Debit',

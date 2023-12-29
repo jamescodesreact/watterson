@@ -9,10 +9,10 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <h2>Welcome back, Leigh.</h2>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={6}>
         <TableLatestCoverage />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={6}>
         <TableNegativeSentimentCoverage />
       </Grid>
     </Grid>
